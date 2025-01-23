@@ -1,0 +1,599 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/** end reset css**/
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  max-width: 1140px;
+  margin: auto;
+  font-family: "Work Sans";
+  font-size: 14px;
+  background-color: #fffef8;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0;
+  margin-top: 60px;
+}
+section {
+  margin: 50px 0;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Syne";
+  font-size: 22px;
+  font-weight: 800;
+  color: #b1663c;
+}
+
+h1 > span {
+  font-family: "Work Sans";
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 30px;
+  color: #1d6154;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+nav li {
+  padding: 0 10px;
+  font-size: 1.2em;
+}
+
+li:hover {
+  color: #b1663c;
+}
+#introduction {
+  display: flex;
+  align-items: center;
+}
+#introduction figure {
+  flex: 1;
+}
+#introduction img {
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+
+#introduction article {
+  flex: 1;
+}
+#introduction h2 {
+  margin-bottom: 1em;
+}
+
+#introduction p {
+  margin-bottom: 0.5em;
+}
+#portfolio h2 {
+  text-align: center;
+}
+
+#portfolio .title-container {
+  display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+#portfolio .title-container .edit-projects {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+#portfolio .title-container .edit-projects img {
+  width: 18px;
+  height: 18px;
+}
+
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+}
+#contact {
+  width: 50%;
+  margin: auto;
+}
+#contact > * {
+  text-align: center;
+}
+#contact h2 {
+  margin-bottom: 20px;
+}
+#contact form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label {
+  margin: 2em 0 1em 0;
+}
+#contact textarea {
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+main {
+  position: relative;
+}
+
+.mode-edition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  gap: 6px;
+}
+
+.mode-edition p {
+  color: white;
+}
+
+input[type="submit"] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  gap: 10px;
+}
+
+.filters button {
+  padding: 12px 24px;
+  background-color: #fffef8;
+  color: #1d6154;
+  border-radius: 24px;
+  border: 1px solid #1d6154;
+  font-family: "Syne";
+  cursor: pointer;
+}
+.filters button:hover {
+  background-color: #1d6154;
+  color: #fffef8;
+}
+
+.login_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  margin: 64px 0;
+}
+
+.login_section h1 {
+  padding: 12px;
+}
+
+.login_section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form_container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 12px;
+}
+
+.login_form_container input {
+  padding-inline: 8px;
+  height: 50px;
+  width: 380px;
+  box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.16);
+  border: none;
+}
+
+.login_form_container select {
+  padding-inline: 8px;
+  height: 50px;
+  /* width: 380px; */
+  box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.16);
+  border: none;
+}
+
+.login_form {
+  border: none;
+  height: 36px;
+  align-items: center;
+  cursor: pointer;
+}
+/* todo: case */
+.pwd_forgot {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.login_footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  margin: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.login_footer a {
+  padding: 12px;
+}
+
+/* maodal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  max-width: 630px;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.modal .modal-gallery-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.modal .modal-gallery-container figure {
+  position: relative;
+}
+
+.modal .modal-gallery-container .delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border: none;
+}
+
+.modal-btn {
+  border: none;
+  height: 36px;
+  cursor: pointer;
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+.modal .gallery {
+  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+}
+
+.add-photo-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-photo-content {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-photo-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  gap: 30px;
+}
+
+.modal-input-photo-container {
+  margin-top: 36px;
+  width: 100%;
+  height: 170px;
+  background-color: #e8f1f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-input-photo-container .input-button {
+  background-color: #cbd6dc;
+  border-radius: 50px;
+  height: 36px;
+  border: none;
+  position: relative;
+}
+
+.modal-input-photo-container .input-button label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  color: #306685;
+  font-size: 14px;
+  font-family: "Work Sans";
+}
+
+.modal-input-photo-container .input-button #photoInput {
+  opacity: 0;
+  height: 36px;
+  width: 170px;
+}
+
+.modal-input-photo-container #imagePreview {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.add-photo-form .divider {
+  width: 100%;
+  height: 1px;
+  color: #b3b3b3;
+}
+
+/* if not values if form, disable bgc */
+/* .add-photo-form .submit-btn {
+  background-color: #a7a7a7;
+  border-radius: 50px;
+  height: 36px;
+  border: none;
+  font-size: 14px;
+  font-family: "Syne";
+  color: white;
+} */
+
+.submit-btn {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.5;
+  border: none;
+  height: 36px;
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+.submit-btn.active {
+  cursor: pointer;
+  opacity: 1;
+  background-color: #1d6154;
+}
+
+.hidden {
+  display: none !important ;
+}

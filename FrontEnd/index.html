@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="mode-edition hidden">
+      <img src="./assets/icons/edit-white.png" alt="edit-white" />
+      <p>mode édition</p>
+    </div>
+    <header>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <li>projets</li>
+          <li>contact</li>
+          <a href="login.html"><li>login</li></a>
+          <li>
+            <img
+              style="width: 17px"
+              src="./assets/icons/instagram.png"
+              alt="Instagram"
+            />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="introduction">
+        <figure>
+          <img src="./assets/images/sophie-bluel.png" alt="" />
+        </figure>
+        <article>
+          <h2>Designer d'espace</h2>
+          <p>
+            Je raconte votre histoire, je valorise vos idées. Je vous accompagne
+            de la conception à la livraison finale du chantier.
+          </p>
+          <p>
+            Chaque projet sera étudié en commun, de façon à mettre en valeur les
+            volumes, les matières et les couleurs dans le respect de l’esprit
+            des lieux et le choix adapté des matériaux. Le suivi du chantier
+            sera assuré dans le souci du détail, le respect du planning et du
+            budget.
+          </p>
+          <p>
+            En cas de besoin, une équipe pluridisciplinaire peut-être constituée
+            : architecte DPLG, décorateur(trice)
+          </p>
+        </article>
+      </section>
+      <section id="portfolio">
+        <div class="title-container">
+          <h2>Mes Projets</h2>
+
+          <div class="edit-projects hidden">
+            <img src="./assets/icons/edit.png" alt="edit  " />
+            <p>modifier</p>
+          </div>
+        </div>
+
+        <div class="filters"></div>
+
+        <!-- filters -->
+
+        <div class="gallery">
+          <!-- render works -->
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Vous avez un projet ? Discutons-en !</p>
+        <form action="#" method="post">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="name" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <input type="submit" value="Envoyer" />
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li>Mentions Légales</li>
+        </ul>
+      </nav>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-gallery-container">
+          <h2>Galerie photo</h2>
+          <div class="gallery"></div>
+          <div class="divider"></div>
+          <button class="modal-btn">Ajouter une photo</button>
+        </div>
+        <!-- test insode content of modal -->
+        <div class="add-photo-content" style="display: none">
+          <h2>Ajouter photo</h2>
+          <div class="add-photo-form">
+            <div class="modal-input-photo-container">
+              <button class="input-button">
+                <label for="photoInput" id="photoLabel">+ photo</label>
+                <input
+                  type="file"
+                  name="file"
+                  id="photoInput"
+                  accept="image/*"
+                />
+              </button>
+              <p id="photoInfo">jpg, png : 4mo max</p>
+              <img
+                id="imagePreview"
+                src=""
+                alt="Aperçu de l'image"
+                style="display: none; margin-top: 10px; max-width: 100%"
+              />
+            </div>
+            <!-- form -->
+            <form action="#">
+              <div class="login_form_container">
+                <label for="title">Titre</label>
+                <input
+                  class="title"
+                  type="text"
+                  name="title"
+                  id="title"
+                  aria-label="title"
+                  placeholder="alain@finkenkroute.fr"
+                />
+              </div>
+              <div class="login_form_container">
+                <label for="category">Catégorie</label>
+                <select
+                  class="email"
+                  name="category"
+                  id="category"
+                  aria-label="category"
+                ></select>
+              </div>
+            </form>
+            <div class="divider"></div>
+            <button id="submitPhoto" class="submit-btn" disabled>
+              Valider
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./main.js"></script>
+</html>
