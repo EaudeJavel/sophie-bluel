@@ -22,10 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const categorySelect = document.querySelector("#category");
   const modeEditionBanner = document.querySelector(".mode-edition");
   const filtersSection = document.querySelector(".filters");
+  const loginMenuItem = document.querySelector(".login-wording");
 
   // check if logged
   if (userToken) {
     isLogged = true;
+    updateLoginMenu();
   }
 
   getCategories();
@@ -50,12 +52,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateUIForLoggedUser();
 
-  // logout
-  document.querySelector(".logout")?.addEventListener("click", () => {
+  function updateLoginMenu() {
+    if (isLogged) {
+      loginMenuItem.textContent = "logout";
+      loginMenuItem.parentElement.setAttribute("href", "#");
+      loginMenuItem.addEventListener("click", handleLogout);
+    } else {
+      loginMenuItem.textContent = "login";
+      loginMenuItem.parentElement.setAttribute("href", "login.html");
+      loginMenuItem.removeEventListener("click", handleLogout);
+    }
+  }
+
+  function handleLogout(e) {
+    e.preventDefault();
     localStorage.removeItem("userToken");
     isLogged = false;
+    updateLoginMenu();
+    window.location.href = "index.html";
     updateUIForLoggedUser();
-  });
+  }
+
+  updateLoginMenu();
 
   let isImageSelected = false;
   let isTitleFilled = false;
