@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
 
-    // Reset addPhotoSection and modalGalleryContainer
+    // reset addPhotoSection and modalGalleryContainer
     addPhotoSection.style.display = "none";
     modalGalleryContainer.style.display = "flex";
 
@@ -106,6 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
     photoInfo.style.display = "block";
     titleInput.value = "";
     categorySelect.value = "";
+
+    isImageSelected = false;
+    isTitleFilled = false;
+    isCategorySelected = false;
   });
 
   //if modal clicked and click outside
