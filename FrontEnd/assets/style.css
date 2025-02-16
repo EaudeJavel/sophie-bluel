@@ -330,9 +330,10 @@ footer nav ul {
   font-family: "Syne";
   cursor: pointer;
 }
-.filters button:hover {
-  background-color: #1d6154;
-  color: #fffef8;
+
+.btn-active {
+  background-color: #1d6154 !important;
+  color: #fffef8 !important ;
 }
 
 .login_section {
