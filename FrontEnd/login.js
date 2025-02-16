@@ -4,6 +4,21 @@ document.querySelector(".login_form").addEventListener("click", (event) => {
     event.preventDefault();
     const email = document.querySelector(".email").value;
     const password = document.querySelector(".password").value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^.{4,}$/;
+
+    if (!emailRegex.test(email)) {
+        errorMessage.textContent = "L'email n'est pas valide";
+        return;
+    }
+
+    if (!passwordRegex.test(password)) {
+        errorMessage.textContent =
+            "Le mot de passe doit contenir au moins 4 caractères";
+        return;
+    }
+
+    errorMessage.textContent = "";
 
     loginUser(email, password).then((data) => {
         if (data) {
@@ -13,6 +28,11 @@ document.querySelector(".login_form").addEventListener("click", (event) => {
     });
 });
 
+// btn filtre actif
+// verficiationn poids et format dans modal, et prblm icone
+// ajout fleche retour modal
+// Gestion du render de la gallerie de la modale
+// sguerrin549@gmail.com
 async function loginUser(email, password) {
     const url = `${API}/users/login`;
     const data = {

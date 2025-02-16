@@ -1,65 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-      <nav>
-        <ul>
-          <a href="./index.html"> <li>projets</li></a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>login</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+            rel="stylesheet"
+        />
+        <meta name="description" content="" />
+        <link rel="stylesheet" href="./assets/style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+            <nav>
+                <ul>
+                    <a href="./index.html"> <li>projets</li></a>
 
-          <li>contact</li>
-          <li>login</li>
-          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
-        </ul>
-      </nav>
-    </header>
+                    <li>contact</li>
+                    <li>login</li>
+                    <li>
+                        <img
+                            src="./assets/icons/instagram.png"
+                            alt="Instagram"
+                        />
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    <section class="login_section">
-      <h2>Login</h2>
-      <form action="#">
-        <div class="login_form_container">
-          <label for="email">Email</label>
-          <input
-            class="email"
-            type="text"
-            name="email"
-            id="email"
-            aria-label="email"
-            placeholder="alain@finkenkroute.fr"
-          />
-        </div>
+        <section class="login_section">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="login_form_container">
+                    <label for="email">Email</label>
+                    <input
+                        class="email"
+                        type="text"
+                        name="email"
+                        id="email"
+                        aria-label="email"
+                        placeholder="alain@finkenkroute.fr"
+                    />
+                </div>
 
-        <div class="login_form_container">
-          <label for="password">Password</label>
-          <input
-            class="password"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="mot de passe"
-          />
-        </div>
+                <div class="login_form_container">
+                    <label for="password">Password</label>
+                    <input
+                        class="password"
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="mot de passe"
+                    />
+                </div>
 
-        <input class="login_form" type="submit" value="se connecter" />
-        <a href="#" class="pwd_forgot">Mot de passe oublié ?</a>
-      </form>
-    </section>
-    <section class="login_footer">
-      <a href="#">Mention légales</a>
-    </section>
-  </body>
-  <script src="./login.js"></script>
+                <div
+                    class="error_message"
+                    style="color: red; margin-top: 10px"
+                ></div>
+
+                <input class="login_form" type="submit" value="se connecter" />
+                <a href="#" class="pwd_forgot">Mot de passe oublié ?</a>
+            </form>
+        </section>
+        <section class="login_footer">
+            <a href="#">Mention légales</a>
+        </section>
+    </body>
+    <script src="./login.js"></script>
 </html>
