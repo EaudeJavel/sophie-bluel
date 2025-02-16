@@ -269,7 +269,11 @@ async function getWorks() {
     const res = await response.json();
 
     if (res) {
-      renderWorks(res);
+      renderMainGallery(res);
+
+      if (isLogged) {
+        renderModalGallery(res);
+      }
     }
 
     return res;
@@ -331,50 +335,6 @@ async function deleteProject(projectId) {
   }
 }
 
-// render works as galleries
-function renderWorks(works) {
-  const galleries = document.querySelectorAll(".gallery");
-
-  galleries.forEach((gallery, index) => {
-    // avoid repetitions
-    gallery.innerHTML = "";
-
-    // loop on works
-    works.forEach((work) => {
-      const figure = document.createElement("figure");
-
-      const img = document.createElement("img");
-      img.src = work.imageUrl;
-      img.alt = work.title;
-      figure.appendChild(img);
-
-      if (index === 0) {
-        // gallery in home
-        const figcaption = document.createElement("figcaption");
-        figcaption.textContent = work.title;
-        figure.appendChild(figcaption);
-      } else if (index === 1) {
-        // gallery in modal
-        const deleteButton = document.createElement("button");
-        deleteButton.className = "delete-button";
-        deleteButton.addEventListener("click", () => {
-          deleteProject(work.id);
-        });
-        const trashImg = document.createElement("img");
-        trashImg.src = "./assets/icons/trash.png";
-        trashImg.alt = "delete";
-        trashImg.style.width = "12px";
-        trashImg.style.height = "12px";
-
-        deleteButton.appendChild(trashImg);
-        figure.appendChild(deleteButton);
-      }
-
-      gallery.appendChild(figure);
-    });
-  });
-}
-
 function renderCategories(categories) {
   const filter = document.querySelector(".filters");
   const select = document.querySelector("#category");
@@ -396,7 +356,7 @@ function renderCategories(categories) {
       allButton.classList.add("btn-active");
       getWorks().then((works) => {
         if (works) {
-          renderWorks(works);
+          renderMainGallery(works);
         }
       });
     });
@@ -437,7 +397,59 @@ function filterWorksByCategory(categoryID) {
       const filteredWorks = works.filter(
         (work) => work.categoryId === categoryID
       );
-      renderWorks(filteredWorks);
+      renderMainGallery(filteredWorks);
     }
+  });
+}
+
+function renderMainGallery(works) {
+  const mainGallery = document.querySelector(".gallery");
+  mainGallery.innerHTML = "";
+
+  works.forEach((work) => {
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    img.src = work.imageUrl;
+    img.alt = work.title;
+
+    const figcaption = document.createElement("figcaption");
+    figcaption.textContent = work.title;
+
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+    mainGallery.appendChild(figure);
+  });
+}
+
+function renderModalGallery(works) {
+  const modalGallery = document.querySelector(
+    ".modal-gallery-container .gallery"
+  );
+  if (!modalGallery) return;
+  modalGallery.innerHTML = "";
+
+  works.forEach((work) => {
+    const figure = document.createElement("figure");
+
+    const img = document.createElement("img");
+    img.src = work.imageUrl;
+    img.alt = work.title;
+    figure.appendChild(img);
+
+    // Bouton de suppression
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
+    deleteButton.addEventListener("click", () => deleteProject(work.id));
+
+    const trashImg = document.createElement("img");
+    trashImg.src = "./assets/icons/trash.png";
+    trashImg.alt = "Supprimer";
+    trashImg.style.width = "12px";
+    trashImg.style.height = "12px";
+
+    deleteButton.appendChild(trashImg);
+    figure.appendChild(deleteButton);
+
+    modalGallery.appendChild(figure);
   });
 }
