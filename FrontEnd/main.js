@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const photoInput = document.querySelector("#photoInput");
   const imagePreview = document.querySelector("#imagePreview");
   const photoInfo = document.querySelector("#photoInfo");
+  const formPicto = document.querySelector(".form-picto");
   const inputButtons = document.querySelector(".input-button");
   const submitButton = document.querySelector("#submitPhoto");
   const titleInput = document.querySelector("#title");
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     imagePreview.style.display = "none";
     inputButtons.style.display = "block";
     photoInfo.style.display = "block";
+    formPicto.style.display = "block";
     titleInput.value = "";
     categorySelect.value = "";
 
@@ -127,27 +129,54 @@ document.addEventListener("DOMContentLoaded", function () {
     isImageSelected = !!file;
 
     if (file) {
-      if (file.type.startsWith("image/")) {
-        // Create URL
-        const imageURL = URL.createObjectURL(file);
-        imagePreview.src = imageURL;
-        imagePreview.style.display = "block";
+      const allowedTypes = ["image/png", "image/jpeg"];
+      const maxSize = 2 * 1024 * 1024; // 2MB
 
-        // Hide label and info
-        photoInfo.style.display = "none";
-        inputButtons.style.display = "none";
-      } else {
+      // type
+      if (!allowedTypes.includes(file.type)) {
+        alert(
+          "Format non supporté. Veuillez sélectionner un fichier PNG ou JPG."
+        );
+        event.target.value = "";
         imagePreview.style.display = "none";
         photoInfo.style.display = "block";
+        formPicto.style.display = "block";
         inputButtons.style.display = "block";
+        isImageSelected = false;
+        checkFormValidity();
+        return;
       }
+
+      // img size
+      if (file.size > maxSize) {
+        alert(
+          "Le fichier est trop lourd. Veuillez sélectionner une image de moins de 2 Mo."
+        );
+        event.target.value = "";
+        imagePreview.style.display = "none";
+        photoInfo.style.display = "block";
+        formPicto.style.display = "block";
+        inputButtons.style.display = "block";
+        isImageSelected = false;
+        checkFormValidity();
+        return;
+      }
+
+      const imageURL = URL.createObjectURL(file);
+      imagePreview.src = imageURL;
+      imagePreview.style.display = "block";
+
+      photoInfo.style.display = "none";
+      formPicto.style.display = "none";
+      inputButtons.style.display = "none";
     } else {
       imagePreview.style.display = "none";
       photoInfo.style.display = "block";
+      formPicto.style.display = "block";
       inputButtons.style.display = "block";
     }
 
-    checkFormValidity(); // Always call this after updating isImageSelected
+    checkFormValidity();
   });
 
   titleInput.addEventListener("input", (event) => {
