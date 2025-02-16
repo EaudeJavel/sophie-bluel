@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const modeEditionBanner = document.querySelector(".mode-edition");
   const filtersSection = document.querySelector(".filters");
   const loginMenuItem = document.querySelector(".login-wording");
+  const backArrow = document.querySelector("#backToGallery");
 
   // check if logged
   if (userToken) {
@@ -107,6 +108,24 @@ document.addEventListener("DOMContentLoaded", function () {
     isImageSelected = false;
     isTitleFilled = false;
     isCategorySelected = false;
+  });
+
+  backArrow.addEventListener("click", () => {
+    addPhotoSection.style.display = "none";
+    modalGalleryContainer.style.display = "flex";
+
+    photoInput.value = "";
+    imagePreview.style.display = "none";
+    inputButtons.style.display = "block";
+    photoInfo.style.display = "block";
+    titleInput.value = "";
+    categorySelect.value = "";
+
+    isImageSelected = false;
+    isTitleFilled = false;
+    isCategorySelected = false;
+
+    checkFormValidity();
   });
 
   //if modal clicked and click outside
